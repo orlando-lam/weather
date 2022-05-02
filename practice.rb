@@ -35,6 +35,24 @@ weather_data = JSON.parse(response)
 # 1. inspect the weather_data hash
 # puts weather_data
 
+region = weather_data["region"]
+current_temp = weather_data["currentConditions"]["temp"]["f"]
+current_condition = weather_data["currentConditions"]["comment"]
+
+puts "In #{region} it is currently #{current_temp} degrees and #{current_condition.downcase}"
+
+todays_forecast = weather_data["next_days"][0]
+# puts todays_forecast
+puts "The rest of today will be a high of #{todays_forecast["max_temp"]["f"]} degrees and #{todays_forecast["comment"].downcase}"
+
+puts "\nThe next days forecast is:"
+for daily_forecast_data in weather_data["next_days"]
+    day_of_week = daily_forecast_data["day"]
+    high_temp = daily_forecast_data["max_temp"]["f"]
+    conditions = daily_forecast_data["comment"].downcase
+    puts "#{day_of_week}: a high of #{high_temp} and #{conditions}."
+end
+
 # CHALLENGE
 # Can you display the weather forecast summary for a user-entered city?
 # Use the following code at the very top of the file and then replace "chicago" in the api url with the user-entered city:
