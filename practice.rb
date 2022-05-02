@@ -13,6 +13,9 @@ weather_data = JSON.parse(response)
 # write a weather summary out to the screen including the current conditions and upcoming forecast.
 # Something like the output below.
 
+# Solution
+# https://entr451.com/practice-weather-solution/
+
 # Sample output:
 # In Chicago, IL it is currently 67 degrees and cloudy.
 # The rest of today will be a high of 65 and scattered shows.
